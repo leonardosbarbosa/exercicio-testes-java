@@ -37,5 +37,39 @@ public class FinancingTests {
 			entity.setTotalAmount(invalidAmount);
 		});
 	}
+	
+	@Test
+	public void setIncomeShouldUpdateWhenValidArguments() {
+		Financing entity = FinancingFactory.getValidFinancing();
+		double expectedIncome = 3000.00;
+		entity.setIncome(expectedIncome);
+		Assertions.assertEquals(expectedIncome, entity.getIncome());
+	}
+
+	@Test
+	public void setIncomeShouldThrowIllegalArgumentExceptionWhenArgumentsAreInvalid() {
+		Financing entity = FinancingFactory.getValidFinancing();
+		double invalidIncome = 800.00;
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			entity.setIncome(invalidIncome);
+		});
+	}
+	
+	@Test
+	public void setMonthsShouldUpdateWhenValidArguments() {
+		Financing entity = FinancingFactory.getValidFinancing();
+		int expectedMonths = 85;
+		entity.setMonths(expectedMonths);
+		Assertions.assertEquals(expectedMonths, entity.getMonths());
+	}
+
+	@Test
+	public void setMonthsShouldThrowIllegalArgumentExceptionWhenArgumentsAreInvalid() {
+		Financing entity = FinancingFactory.getValidFinancing();
+		int invalidMonths = 18;
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			entity.setMonths(invalidMonths);
+		});
+	}
 
 }
