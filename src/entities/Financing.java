@@ -16,7 +16,6 @@ public class Financing {
 	public Double getTotalAmount() {
 		return totalAmount;
 	}
-
 	public void setTotalAmount(Double totalAmount) {
 		validateFinancing(totalAmount, income, months);
 		this.totalAmount = totalAmount;
@@ -50,7 +49,7 @@ public class Financing {
 	
 	private void validateFinancing(Double totalAmount, Double income, Integer months) {
 		if (totalAmount * 0.8 / months > income / 2.0) {
-			throw new IllegalArgumentException("A parcela não pode ser maior que a metade da renda");
+			throw new IllegalArgumentException("A parcela nï¿½o pode ser maior que a metade da renda");
 		}
 	}
 }
