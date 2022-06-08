@@ -71,5 +71,19 @@ public class FinancingTests {
 			entity.setMonths(invalidMonths);
 		});
 	}
+	
+	@Test
+	public void entryShouldCalcCorrectlyTheEntryValue () {
+		Financing entity = FinancingFactory.getValidFinancing();
+		double expectedEntry = 20000.0;
+		Assertions.assertEquals(expectedEntry, entity.entry());
+	}
+	
+	@Test
+	public void quotaShouldCalcCorrectlyTheQuotaValue () {
+		Financing entity = FinancingFactory.getValidFinancing();
+		double expectedQuota = 1000.0;
+		Assertions.assertEquals(expectedQuota, entity.quota());
+	}
 
 }
