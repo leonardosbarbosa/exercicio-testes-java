@@ -9,13 +9,15 @@ import tests.factory.FinancingFactory;
 public class FinancingTests {
 
 	@Test
-	public void financingConstructorShouldCreateObjectWhenArgumentsAreValid() {
+	public void constructorShouldCreateObjectWhenArgumentsAreValid() {
 		Financing entity = FinancingFactory.getValidFinancing();
-		Assertions.assertNotNull(entity);
+		Assertions.assertEquals(100000.0, entity.getTotalAmount());
+		Assertions.assertEquals(2000.0, entity.getIncome());
+		Assertions.assertEquals(80, entity.getMonths());
 	}
 
 	@Test
-	public void financingConstructorShouldThrowIllegalArgumentExceptionWhenArgumentsAreInvalid() {
+	public void constructorShouldThrowIllegalArgumentExceptionWhenArgumentsAreInvalid() {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			Financing entity = FinancingFactory.getInvalidFinancing();
 		});
